@@ -7,3 +7,4 @@ E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\tcp_test\obj\Debug\tcp_
 E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\tcp_test\obj\Debug\tcp_test.exe
 E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\tcp_test\obj\Debug\tcp_test.pdb
 E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\tcp_test\obj\Debug\tcp_test.Form1.resources
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\tcp_test\obj\Debug\tcp_test.csprojAssemblyReference.cache

@@ -9,6 +9,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,21 +18,38 @@ namespace tcp_test
     public partial class Form1 : Form
     {
         TcpClient tcp;
+         SerialPort serialPort;
+        SerialPort readers;
+        
         public Form1()
         {
             InitializeComponent();
             //Startsevice();
-            Connect_tcp(ref tcp);
+            Connect_tcp(ref tcp );
             //cl_instance.instance.b = 1;
-            openrelay();
+            openrelay(ref serialPort , ref serialPort);
+            reader(ref readers);
+            readers.DataReceived += SerialPort_DataReceived;
         }
 
-        private void openrelay()
+        private void reader(ref SerialPort Readerport)
         {
-            SerialPort serialPort = new SerialPort();
+            Readerport = new SerialPort();
+            Readerport.PortName = "COM5";
+            Readerport.BaudRate = 38400;
+            Readerport.Parity = Parity.None;
+            Readerport.StopBits = StopBits.One;
+            Readerport.Open();
+            
+        }
+
+        private void openrelay(ref  SerialPort serialPort , ref SerialPort Readerport)
+        {
+             serialPort = new SerialPort();
             serialPort.PortName = "COM4";
             serialPort.ReadTimeout = 3000;
             serialPort.WriteTimeout = 3000;
+        
             serialPort.Open();
             int bit = 1;
             int close_bit = 0;
@@ -43,9 +61,25 @@ namespace tcp_test
             byte[] data4_close = new byte[] { 255, (byte)convoy_relay, (byte)close_bit };
             serialPort.Write(data1, 0, data1.Length);
             serialPort.Write(data2, 0, data2.Length);
+
+          
+
             serialPort.Write(data3_close, 0, data3_close.Length);
             serialPort.Write(data4_close, 0, data4_close.Length);
         }
+
+        private  void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            var cs = readers.ReadExisting();
+            StringBuilder stringBuilder = new StringBuilder();
+                Thread.Sleep(100);
+             label1.Invoke( new Action(() => { label1.Text = stringBuilder.Append(cs.ToString().Split(';')[0].ToString()).ToString(); } ));
+
+
+           
+        }
+
+  
 
         private void Startsevice()
         {
