@@ -1,0 +1,7 @@
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\bin\Debug\TCP_Client.exe.config
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\bin\Debug\TCP_Client.exe
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\bin\Debug\TCP_Client.pdb
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\obj\Debug\TCP_Client.csprojAssemblyReference.cache
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\obj\Debug\TCP_Client.csproj.CoreCompileInputs.cache
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\obj\Debug\TCP_Client.exe
+E:\Suparat_20210105_webapi\test_webapi_20210105\tcp_test\TCP_Client\obj\Debug\TCP_Client.pdb
