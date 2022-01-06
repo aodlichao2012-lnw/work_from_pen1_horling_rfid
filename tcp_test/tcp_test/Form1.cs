@@ -20,9 +20,9 @@ namespace tcp_test
         public Form1()
         {
             InitializeComponent();
-            Startsevice();
+            //Startsevice();
             Connect_tcp(ref tcp);
-            cl_instance.instance.b = 1;
+            //cl_instance.instance.b = 1;
             openrelay();
         }
 
@@ -80,7 +80,14 @@ namespace tcp_test
         private void Connect_tcp(ref TcpClient tcpClient)
         {
 
-            IPAddress[] iPAddresses = Dns.GetHostAddresses("");
+            IPAddress[] iPAddresses = Dns.GetHostAddresses("192.168.1.90");
+            IPEndPoint iPEndPoint = new IPEndPoint(iPAddresses[0] , 6001);
+            tcpClient = new TcpClient();
+            tcpClient.Connect(iPEndPoint);
+            if(tcpClient.Connected)
+            {
+                MessageBox.Show("connected successfull");
+            }
 
 
         }
@@ -208,6 +215,11 @@ namespace tcp_test
             tcp = new TcpClient();
             Connect_tcp(ref tcp);
 
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
